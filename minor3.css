@@ -1,8 +1,8 @@
+/*global rese*/
 *{
 	padding: 0;
 	margin: 0;
     box-sizing: border-box;
-    
 }
 .container{
     height:100vh;
@@ -23,11 +23,12 @@
     color:#ffffff;
     letter-spacing:1.5px;
 }
+
+/* styling display screen */
 .display-screen{
     height:17vh;
     width:35vw; 
     margin-bottom: 2.8vh;
-
 }
 .user-input{
     height:17vh;
@@ -44,11 +45,12 @@
     font-weight: 700;
     line-height: 12.15px; 
     box-shadow: 0px 4px 4px 0px #00000040;
-
 }
 .user-input::placeholder {
     color: #ffffff;
 }
+
+/* styling calculator body */
 .cal-body{
     height:58vh;
     width:34vw;
@@ -58,13 +60,12 @@
     gap: 11px;
     border-radius: 12px; 
 }
+/* styling grid 1 and its delete and rest other keys */
 .grid1{
     display: grid;
     grid-template-rows:repeat(4, 7.9vh);
     grid-template-columns: repeat(4, 6.5vw);
     gap:16px;
-    /* box-shadow: 0px 4px 4px 0px #00000040; */
-    /* background-color: #252D44; */
 }
 .key,.delete-key{
     font-weight: 800;
@@ -87,6 +88,7 @@
     letter-spacing:1.5px;
     text-transform: uppercase;
 }
+/* styling grid 2 keys i.e reset and equal key */
 .grid2{
     margin-top:2.6vh;
     display: grid;
@@ -101,7 +103,6 @@
     border-radius: 12px;
     font-weight: 800;
     text-transform: uppercase;
-
 }
 .reset-key{
     font-size: 24px;
@@ -111,10 +112,11 @@
     letter-spacing:1.5px;
 }
 .equal-key{
-    font-size: 28.05px;
+    font-size: 30.05px;
     background-color: #D13F30;
     border:1px solid #D13F30;
 }
+/* additional css for styling */
 .key:hover, .delete-key:hover, .reset-key:hover, .equal-key:hover{
     cursor: pointer;
 }

@@ -7,21 +7,21 @@ const equalButton = document.querySelector('.equal-key');
 let currentInput = '';
 let lastClickedWasOperator = false;
 let operators = ['+', '-', '/', 'x'];
-let hasDecimal = false; // Track if the current number segment already has a decimal point
+let hasDecimal = false;
 
-// Helper function to update display
+//update display
 function updateDisplay(value) {
     display.value = value;
-    display.scrollLeft = display.scrollWidth; // Auto scroll to the right when input exceeds width
+    display.scrollLeft = display.scrollWidth; 
 }
 
-// Function to validate the current input before evaluation
+//function to validate current input
 function isValidExpression(expression) {
     const validPattern = /^-?(\d+(\.\d+)?)([-+/*]\d+(\.\d+)?)*$/;
     return validPattern.test(expression);
 }
 
-// Handle number and operator button clicks
+//handle no and operator button click
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         const value = button.textContent;
@@ -29,40 +29,40 @@ buttons.forEach(button => {
         if (!isNaN(value)) { // Numbers
             currentInput += value;
             lastClickedWasOperator = false;
-        } else if (value === '.') { // Decimal point
-            if (!hasDecimal) { // Only allow decimal if one doesn't already exist in the current number
+        } else if (value === '.') { //decimal point
+            if (!hasDecimal) { 
                 currentInput += value;
-                hasDecimal = true; // Set flag indicating current number has a decimal
+                hasDecimal = true; 
             }
-        } else if (operators.includes(value)) { // Operators
+        } else if (operators.includes(value)) {
             if (currentInput === '' && value !== '-') {
-                return; // Ignore if first input is not a minus sign
+                return;
             }
             if (lastClickedWasOperator) {
-                return; // Prevent consecutive operators
+                return;//prevent consecutive operators
             }
-            currentInput += value === 'x' ? '*' : value; // Convert 'x' to '*'
+            currentInput += value === 'x' ? '*' : value;
             lastClickedWasOperator = true;
-            hasDecimal = false; // Reset decimal flag for the next number
+            hasDecimal = false; 
         }
 
         updateDisplay(currentInput);
     });
 });
 
-// Handle Delete button
+//delete button
 deleteButton.addEventListener('click', () => {
     const lastChar = currentInput.slice(-1);
     currentInput = currentInput.slice(0, -1);
 
     if (lastChar === '.') {
-        hasDecimal = false; // Reset flag if decimal was deleted
+        hasDecimal = false; 
     }
     updateDisplay(currentInput || '0');
     lastClickedWasOperator = false;
 });
 
-// Handle Reset button
+//reset button
 resetButton.addEventListener('click', () => {
     currentInput = '';
     updateDisplay('0');
@@ -70,23 +70,22 @@ resetButton.addEventListener('click', () => {
     hasDecimal = false;
 });
 
-// Handle Equal button
+//equal button
 equalButton.addEventListener('click', () => {
     if (lastClickedWasOperator) {
         updateDisplay('Error');
-        return; // Prevent calculation if the last input was an operator
+        return; 
     }
 
     if (isValidExpression(currentInput)) {
-        // Evaluate the expression since it's valid
-        let result = eval(currentInput); // Evaluate the expression
-        result = parseFloat(result.toFixed(3)); // Limit to 3 decimal places
+        let result = eval(currentInput); //evaluate the expression
+        result = parseFloat(result.toFixed(3)); //limit to 3 decimal places
         currentInput = result.toString();
         updateDisplay(currentInput);
     } else {
-        updateDisplay('Error'); // Show error if expression is invalid
+        updateDisplay('Error'); //shows error if expression is invalid
     }
 
     lastClickedWasOperator = false;
-    hasDecimal = false; // Reset decimal tracking after calculation
+    hasDecimal = false; 
 });
