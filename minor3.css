@@ -15,9 +15,9 @@
     gap: 3rem;
 }
 .header{
-    font-family: Inter;
-    font-size: 20px;
-    font-weight: 800;
+    font-family: "Inter", sans-serif;
+    font-size: 18.5px;
+    font-weight: 780;
     line-height: 35.89px;
     text-align: left;
     color:#ffffff;
@@ -40,7 +40,7 @@
     text-align: right;
     padding: 0 1.2vw 0 1.2vw;
     font-size: 2.5rem;
-    font-family: Segoe UI;
+    font-family: "Segoe UI",Arial, sans-serif;
     overflow-x: auto;
     font-weight: 700;
     line-height: 12.15px; 
@@ -48,6 +48,7 @@
 }
 .user-input::placeholder {
     color: #ffffff;
+    font-family: "Segoe UI",Arial, sans-serif;
 }
 
 /* styling calculator body */
@@ -68,11 +69,11 @@
     gap:16px;
 }
 .key,.delete-key{
-    font-weight: 800;
+    font-weight: 780;
     line-height: 36.31px;
     text-align: center;
     border-radius: 12px ;
-    font-family: Inter;
+    font-family: "Inter", sans-serif;
 }
 .key{
     background-color: #EAE3DB;
@@ -97,18 +98,18 @@
     gap:16px;
 }
 .reset-key,.equal-key{
-    font-family: Inter;
+    font-family: "Inter", sans-serif;
     line-height: 36.31px;
     text-align: center;
     border-radius: 12px;
-    font-weight: 800;
+    font-weight: 780;
     text-transform: uppercase;
+    color:#ffffff;
 }
 .reset-key{
     font-size: 24px;
     background-color: #3B4664;
     border:1px solid #3B4664;
-    color:#ffffff;
     letter-spacing:1.5px;
 }
 .equal-key{
